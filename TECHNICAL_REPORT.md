@@ -55,7 +55,7 @@ Ce rapport présente le projet Flutter `iot_mobile_app`, développé pour simule
 | Modification de seuils | ✅ | Page `SettingsPage` |
 | Thème clair/sombre | ✅ | `themeMode` sauvegardé en SQLite |
 | Intégration API externe | ✅ | OpenWeatherMap via `WeatherService` |
-| Authentification utilisateur | ✅ | Écran de connexion avec validation email/mot de passe, stockage état avec SharedPreferences, bouton déconnexion |
+| Authentification utilisateur | ❌ | Fonctionnalité supprimée - accès direct au dashboard |
 
 ## 6. Détails techniques
 ### 6.1 Stockage SQLite
@@ -80,14 +80,6 @@ Ce rapport présente le projet Flutter `iot_mobile_app`, développé pour simule
 - **Analyse de tendance** : comparaison des moyennes mobiles pour détecter hausse/baisse/stable
 - **Recommandation de seuils** : ajustement automatique basé sur l'historique (moyenne +5°C, max-2°C)
 - Affichage en temps réel sur le dashboard avec indicateurs visuels
-
-### 6.5 Authentification
-- `AuthModel` : modèle de données pour email/mot de passe avec validation
-- `AuthService` : gestion de l'état de connexion via SharedPreferences
-- `LoginPage` : écran de connexion avec formulaire, validation et gestion d'erreurs
-- Authentification mock (mot de passe "password123" pour tout email)
-- Navigation conditionnelle : LoginPage si non connecté, Dashboard sinon
-- Bouton déconnexion dans l'AppBar du dashboard
 ## 7. Instructions de déploiement
 ### 7.1 Installation
 1. Cloner le projet

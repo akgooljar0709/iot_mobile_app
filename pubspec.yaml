@@ -45,11 +45,6 @@ dependencies:
     sdk: flutter
   flutter_gen: ^5.13.0+1
   http: ^1.2.1
-  shared_preferences: ^2.2.2
-  google_maps_flutter: ^2.5.0
-  geolocator: ^9.0.2
-  geocoding: ^2.1.1
-  weather_icons: ^3.0.0
 
 flutter:
   generate: true

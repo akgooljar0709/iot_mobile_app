@@ -123,15 +123,15 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     bool isCritical = temperature > threshold;
-    String statusText = isCritical ? AppLocalizations.of(context)!.coolingSystemActivated : AppLocalizations.of(context)!.normal;
+    String statusText = isCritical ? (AppLocalizations.of(context)?.coolingSystemActivated ?? 'High Temperature Alert') : (AppLocalizations.of(context)?.normal ?? 'Normal Conditions');
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.iotDashboard),
+        title: Text(AppLocalizations.of(context)?.iotDashboard ?? 'IoT Dashboard'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            tooltip: AppLocalizations.of(context)!.refresh,
+            tooltip: AppLocalizations.of(context)?.refresh ?? 'Refresh',
             onPressed: () {
               weatherRepository.clearCache();
               _loadWeatherData();
@@ -139,7 +139,7 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
           IconButton(
             icon: const Icon(Icons.history),
-            tooltip: AppLocalizations.of(context)!.viewHistory,
+            tooltip: AppLocalizations.of(context)?.viewHistory ?? 'View History',
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -226,8 +226,8 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ),
               const SizedBox(height: 16),
-              SensorCard(title: AppLocalizations.of(context)!.temperature, value: "$temperature °C", isCritical: isCritical),
-              SensorCard(title: AppLocalizations.of(context)!.humidity, value: "$humidity %", isCritical: false),
+              SensorCard(title: AppLocalizations.of(context)?.temperature ?? 'Temperature', value: "$temperature °C", isCritical: isCritical),
+              SensorCard(title: AppLocalizations.of(context)?.humidity ?? 'Humidity', value: "$humidity %", isCritical: false),
               const SizedBox(height: 20),
               StatusText(status: statusText, isCritical: isCritical),
             ],

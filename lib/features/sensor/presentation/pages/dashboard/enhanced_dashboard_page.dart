@@ -9,7 +9,6 @@ import 'package:iot_mobile_app/features/sensor/data/settings_repository.dart';
 import 'package:iot_mobile_app/features/sensor/data/weather_repository.dart';
 import 'package:iot_mobile_app/features/sensor/data/weather_service.dart';
 import 'package:iot_mobile_app/features/sensor/data/ai_service.dart';
-import 'package:iot_mobile_app/features/auth/data/auth_service.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/city_selection_page.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/sensor_history_page.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/settings_page.dart';
@@ -37,7 +36,6 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
   late final WeatherRepository weatherRepository;
   late final WeatherService weatherService;
   late final AIService aiService;
-  late final AuthService authService;
 
   double temperature = 25;
   double humidity = 50;
@@ -67,7 +65,6 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
     weatherService = WeatherService();
     weatherRepository = WeatherRepositoryImpl(weatherService);
     aiService = AIService(repo);
-    authService = AuthService();
     _loadWeatherData();
     _loadSensorHistory();
     startSimulation();
@@ -206,12 +203,7 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
       _loadWeatherData();
     });
   }
-  void _logout() async {
-    await authService.logout();
-    if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/login');
-    }
-  }
+
   void _selectCity() async {
     final selectedCity = await Navigator.of(context).push<String>(
       MaterialPageRoute(
@@ -242,7 +234,7 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.iotDashboard),
+        title: Text(AppLocalizations.of(context)?.iotDashboard ?? 'IoT Dashboard'),
         elevation: 0,
         actions: [
           IconButton(
@@ -269,7 +261,7 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            tooltip: AppLocalizations.of(context)!.refresh,
+            tooltip: AppLocalizations.of(context)?.refresh ?? 'Refresh',
             onPressed: () {
               weatherRepository.clearCache();
               _loadWeatherData();
@@ -277,7 +269,7 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
           ),
           IconButton(
             icon: const Icon(Icons.history),
-            tooltip: AppLocalizations.of(context)!.viewHistory,
+            tooltip: AppLocalizations.of(context)?.viewHistory ?? 'View History',
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -285,11 +277,6 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
                 ),
               );
             },
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout),
-            tooltip: 'Logout',
-            onPressed: _logout,
           ),
         ],
       ),

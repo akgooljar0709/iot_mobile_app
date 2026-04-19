@@ -38,11 +38,11 @@ class _SensorHistoryPageState extends State<SensorHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.sensorHistory),
+        title: Text(l10n?.sensorHistory ?? 'Sensor History'),
       ),
       body: FutureBuilder<List<SensorModel>>(
         future: _historyFuture,
@@ -57,7 +57,7 @@ class _SensorHistoryPageState extends State<SensorHistoryPage> {
 
           final readings = snapshot.data ?? [];
           if (readings.isEmpty) {
-            return Center(child: Text(l10n.noHistory));
+            return Center(child: Text(l10n?.noHistory ?? 'No saved readings yet'));
           }
 
           return ListView.separated(
@@ -75,10 +75,10 @@ class _SensorHistoryPageState extends State<SensorHistoryPage> {
                     color: isCritical ? AppColors.critical : AppColors.normal,
                   ),
                   title: Text(
-                    '${l10n.temperature}: ${reading.temperature.toStringAsFixed(1)} °C',
+                    '${l10n?.temperature ?? 'Temperature'}: ${reading.temperature.toStringAsFixed(1)} °C',
                   ),
                   subtitle: Text(
-                    '${l10n.humidity}: ${reading.humidity.toStringAsFixed(1)} %\n${reading.timestamp}',
+                    '${l10n?.humidity ?? 'Humidity'}: ${reading.humidity.toStringAsFixed(1)} %\n${reading.timestamp}',
                   ),
                   isThreeLine: true,
                   trailing: isCritical
@@ -97,7 +97,7 @@ class _SensorHistoryPageState extends State<SensorHistoryPage> {
         onPressed: () {
           setState(_loadHistory);
         },
-        tooltip: l10n.refresh,
+        tooltip: l10n?.refresh ?? 'Refresh',
         child: const Icon(Icons.refresh),
       ),
     );

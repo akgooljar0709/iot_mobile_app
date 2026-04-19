@@ -100,7 +100,7 @@ class _ModernDashboardPageState extends State<ModernDashboardPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.iotDashboard),
+        title: Text(AppLocalizations.of(context)?.iotDashboard ?? 'IoT Dashboard'),
         elevation: 0,
         actions: [
           IconButton(
@@ -110,7 +110,7 @@ class _ModernDashboardPageState extends State<ModernDashboardPage> {
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            tooltip: AppLocalizations.of(context)!.refresh,
+            tooltip: AppLocalizations.of(context)?.refresh ?? 'Refresh',
             onPressed: () {
               _weatherRepository.clearCache();
               _loadWeather(_currentCity);
@@ -118,7 +118,7 @@ class _ModernDashboardPageState extends State<ModernDashboardPage> {
           ),
           IconButton(
             icon: const Icon(Icons.history),
-            tooltip: AppLocalizations.of(context)!.viewHistory,
+            tooltip: AppLocalizations.of(context)?.viewHistory ?? 'View History',
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
