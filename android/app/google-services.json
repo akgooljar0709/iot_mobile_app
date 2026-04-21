@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073196090140",
+    "project_id": "shiamproject",
+    "storage_bucket": "shiamproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073196090140:android:f08bc5bda1fa1822b730d9",
+        "android_client_info": {
+          "package_name": "com.example.app_authentification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073196090140-39bd5aib9fsiqmo17unsa3v0qolfgu0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVceAxY3_164f6DSfhN7aj07rZGYpg36A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073196090140-39bd5aib9fsiqmo17unsa3v0qolfgu0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

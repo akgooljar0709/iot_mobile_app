@@ -14,6 +14,7 @@ import 'package:iot_mobile_app/features/sensor/presentation/pages/sensor_history
 import 'package:iot_mobile_app/features/sensor/presentation/pages/settings_page.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/widgets/enhanced_weather_card.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/widgets/weather_chart_widget.dart';
+import 'package:iot_mobile_app/features/auth/data/auth_service.dart';
 
 class EnhancedDashboardPage extends StatefulWidget {
   final SettingsRepository settingsRepository;
@@ -36,6 +37,7 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
   late final WeatherRepository weatherRepository;
   late final WeatherService weatherService;
   late final AIService aiService;
+  late final AuthService _authService;
 
   double temperature = 25;
   double humidity = 50;
@@ -65,6 +67,7 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
     weatherService = WeatherService();
     weatherRepository = WeatherRepositoryImpl(weatherService);
     aiService = AIService(repo);
+    _authService = AuthService();
     _loadWeatherData();
     _loadSensorHistory();
     startSimulation();
@@ -221,6 +224,13 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
     }
   }
 
+  Future<void> _logout() async {
+    await _authService.logout();
+    if (mounted) {
+      Navigator.of(context).pushReplacementNamed('/login');
+    }
+  }
+
   @override
   void dispose() {
     _timer?.cancel();
@@ -277,6 +287,11 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
                 ),
               );
             },
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: _logout,
           ),
         ],
       ),

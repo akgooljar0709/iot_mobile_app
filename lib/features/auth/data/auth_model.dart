@@ -9,12 +9,13 @@ class AuthModel {
     return email.isNotEmpty && password.length >= 6;
   }
 
-  // Mock authentication - replace with real API call
-  static Future<bool> authenticate(String email, String password) async {
-    // Simulate network delay
-    await Future.delayed(const Duration(seconds: 1));
+  // Email validation
+  static bool isValidEmail(String email) {
+    return RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
+  }
 
-    // Simple mock: accept any email with password "password123"
-    return password == "password123";
+  // Password validation
+  static bool isValidPassword(String password) {
+    return password.length >= 6;
   }
 }

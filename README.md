@@ -53,6 +53,7 @@ A sophisticated Flutter application that simulates an intelligent IoT (Internet 
 - Dart SDK (included with Flutter)
 - Android Studio or VS Code with Flutter extensions
 - Android/iOS device or emulator
+- **Firebase Account**: Required for authentication features
 
 ---
 
@@ -69,7 +70,30 @@ cd iot_mobile_app
 flutter pub get
 ```
 
-### 3. Configure API (Optional)
+### 3. Firebase Setup
+The app uses Firebase Authentication for user login. Follow these steps:
+
+1. **Create a Firebase Project**:
+   - Go to [Firebase Console](https://console.firebase.google.com/)
+   - Click "Create a project" or select an existing one
+   - Enable Authentication and configure sign-in methods (Email/Password)
+
+2. **Configure Firebase for your platform**:
+   ```bash
+   # Install FlutterFire CLI (if not already installed)
+   dart pub global activate flutterfire_cli
+
+   # Configure Firebase for your project
+   flutterfire configure
+   ```
+   This will automatically generate the `firebase_options.dart` file with your project configuration.
+
+3. **Manual Configuration** (Alternative):
+   - Download `google-services.json` (Android) and `GoogleService-Info.plist` (iOS) from Firebase Console
+   - Place them in the respective platform directories
+   - Update `lib/firebase_options.dart` with your Firebase project configuration
+
+### 4. Configure API (Optional)
 The app includes a demo API key for testing. For production use:
 
 1. Get a free API key from [OpenWeatherMap](https://openweathermap.org/api)
@@ -78,7 +102,7 @@ The app includes a demo API key for testing. For production use:
    OPENWEATHERMAP_API_KEY=your_actual_api_key_here
    ```
 
-### 4. Run the Application
+### 5. Run the Application
 ```bash
 # For Android
 flutter run
@@ -95,9 +119,11 @@ flutter run -d chrome
 ## 📱 Usage Guide
 
 ### First Launch
-1. The app starts directly on the dashboard
-2. Initial sensor data loads automatically
-3. AI analysis begins processing historical data
+1. **Authentication Required**: The app starts with a login screen
+2. **Create Account**: Use any valid email and password (minimum 6 characters)
+3. **Login**: Use your registered email and password to access the dashboard
+4. Initial sensor data loads automatically after login
+5. AI analysis begins processing historical data
 
 ### Dashboard Features
 - **Weather Card**: Shows current temperature, humidity, and weather conditions
@@ -120,6 +146,11 @@ flutter run -d chrome
 1. Tap the location icon (📍) in the app bar
 2. Search and select different cities
 3. Weather data updates for the selected location
+
+### Logout
+1. Tap the logout icon (🚪) in the app bar
+2. Returns to the login screen
+3. Authentication state is cleared
 
 ---
 

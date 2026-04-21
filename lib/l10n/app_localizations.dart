@@ -291,6 +291,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No data available'**
   String get noDataAvailable;
+
+  /// No description provided for @loginTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'IoT Dashboard'**
+  String get loginTitle;
+
+  /// No description provided for @loginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to access your IoT devices'**
+  String get loginSubtitle;
+
+  /// No description provided for @emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailLabel;
+
+  /// No description provided for @passwordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordLabel;
+
+  /// No description provided for @emailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email'**
+  String get emailHint;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get passwordHint;
+
+  /// No description provided for @emailRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get emailRequired;
+
+  /// No description provided for @passwordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get passwordRequired;
+
+  /// No description provided for @emailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get emailInvalid;
+
+  /// No description provided for @passwordTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passwordTooShort;
+
+  /// No description provided for @signInButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signInButton;
+
+  /// No description provided for @loginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed. Please try again.'**
+  String get loginFailed;
+
+  /// No description provided for @userNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No user found with this email.'**
+  String get userNotFound;
+
+  /// No description provided for @wrongPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong password provided.'**
+  String get wrongPassword;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email address.'**
+  String get invalidEmail;
+
+  /// No description provided for @userDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'This user account has been disabled.'**
+  String get userDisabled;
+
+  /// No description provided for @tooManyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many failed login attempts. Please try again later.'**
+  String get tooManyRequests;
+
+  /// No description provided for @weakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak.'**
+  String get weakPassword;
+
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'An account already exists with that email.'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @registrationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration failed. Please try again.'**
+  String get registrationFailed;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account or use existing Firebase credentials'**
+  String get createAccount;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate

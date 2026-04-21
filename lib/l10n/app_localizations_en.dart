@@ -114,4 +114,72 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noDataAvailable => 'No data available';
+
+  @override
+  String get loginTitle => 'IoT Dashboard';
+
+  @override
+  String get loginSubtitle => 'Sign in to access your IoT devices';
+
+  @override
+  String get emailLabel => 'Email';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get emailHint => 'Enter your email';
+
+  @override
+  String get passwordHint => 'Enter your password';
+
+  @override
+  String get emailRequired => 'Please enter your email';
+
+  @override
+  String get passwordRequired => 'Please enter your password';
+
+  @override
+  String get emailInvalid => 'Please enter a valid email';
+
+  @override
+  String get passwordTooShort => 'Password must be at least 6 characters';
+
+  @override
+  String get signInButton => 'Sign In';
+
+  @override
+  String get loginFailed => 'Login failed. Please try again.';
+
+  @override
+  String get userNotFound => 'No user found with this email.';
+
+  @override
+  String get wrongPassword => 'Wrong password provided.';
+
+  @override
+  String get invalidEmail => 'Invalid email address.';
+
+  @override
+  String get userDisabled => 'This user account has been disabled.';
+
+  @override
+  String get tooManyRequests =>
+      'Too many failed login attempts. Please try again later.';
+
+  @override
+  String get weakPassword => 'The password provided is too weak.';
+
+  @override
+  String get emailAlreadyInUse => 'An account already exists with that email.';
+
+  @override
+  String get registrationFailed => 'Registration failed. Please try again.';
+
+  @override
+  String get createAccount =>
+      'Create an account or use existing Firebase credentials';
+
+  @override
+  String get logout => 'Logout';
 }
