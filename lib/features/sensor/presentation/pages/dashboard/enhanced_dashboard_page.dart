@@ -12,6 +12,7 @@ import 'package:iot_mobile_app/features/sensor/data/ai_service.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/city_selection_page.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/sensor_history_page.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/settings_page.dart';
+import 'package:iot_mobile_app/features/sensor/presentation/pages/realtime_arduino_page.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/widgets/enhanced_weather_card.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/widgets/weather_chart_widget.dart';
 import 'package:iot_mobile_app/features/auth/data/auth_service.dart';
@@ -70,7 +71,6 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
     _authService = AuthService();
     _loadWeatherData();
     _loadSensorHistory();
-    startSimulation();
   }
 
   void _loadWeatherData() async {
@@ -284,6 +284,17 @@ class _EnhancedDashboardPageState extends State<EnhancedDashboardPage> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => const SensorHistoryPage(),
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.cable),
+            tooltip: 'Arduino Real-Time Data',
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const RealtimeArduinoPage(),
                 ),
               );
             },
