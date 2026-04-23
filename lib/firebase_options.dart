@@ -41,13 +41,14 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'your-web-api-key',
-    appId: 'your-web-app-id',
-    messagingSenderId: 'your-sender-id',
-    projectId: 'your-project-id',
-    authDomain: 'your-project-id.firebaseapp.com',
-    storageBucket: 'your-project-id.appspot.com',
-    measurementId: 'your-measurement-id',
+    apiKey: 'AIzaSyA6irPz6HUWAh47i4H93JRRsmN87KG0hWs',
+    appId: '1:1073196090140:web:be2a9f526a05a2c9b730d9',
+    messagingSenderId: '1073196090140',
+    projectId: 'shiamproject',
+    authDomain: 'shiamproject.firebaseapp.com',
+    databaseURL: 'https://shiamproject-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'shiamproject.firebasestorage.app',
+    measurementId: 'G-ENS3VTC9SB',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -55,6 +56,7 @@ class DefaultFirebaseOptions {
     appId: '1:1073196090140:android:f08bc5bda1fa1822b730d9',
     messagingSenderId: '1073196090140',
     projectId: 'shiamproject',
+    databaseURL: 'https://shiamproject-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'shiamproject.firebasestorage.app',
   );
 
