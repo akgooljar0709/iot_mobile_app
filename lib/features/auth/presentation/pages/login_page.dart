@@ -194,6 +194,24 @@ class _LoginPageState extends State<LoginPage> {
 
                         if (_errorMessage != null) const SizedBox(height: 16),
 
+                        // Forgot Password Link
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed('/forgot-password');
+                            },
+                            child: Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 8),
+
                         // Login Button
                         SizedBox(
                           width: double.infinity,

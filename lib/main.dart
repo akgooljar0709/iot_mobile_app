@@ -7,6 +7,7 @@ import 'package:iot_mobile_app/features/sensor/data/settings_model.dart';
 import 'package:iot_mobile_app/features/sensor/presentation/pages/dashboard/enhanced_dashboard_page.dart';
 import 'package:iot_mobile_app/features/auth/presentation/pages/login_page.dart';
 import 'package:iot_mobile_app/features/auth/presentation/pages/signup_page.dart';
+import 'package:iot_mobile_app/features/auth/presentation/pages/forgot_password_page.dart';
 import 'package:iot_mobile_app/features/auth/data/auth_service.dart';
 import 'package:iot_mobile_app/l10n/app_localizations.dart';
 
@@ -107,6 +108,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignupPage(),
+        '/forgot-password': (context) => const ForgotPasswordPage(),
         '/dashboard': (context) => EnhancedDashboardPage(
           settingsRepository: _settingsRepository,
           initialSettings: SettingsModel(threshold: _threshold, themeMode: _themeMode),
